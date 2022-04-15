@@ -12,7 +12,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import warnings
 warnings.filterwarnings("ignore")
 # import xgboost
-
+app = Flask(__name__)
 #Loading user-user based tf-idf model
 with open('model/tf-idf-userbased','rb') as fp:
 	user_model = pickle.load(fp)
