@@ -98,8 +98,7 @@ def sentiment_analysis(products):
 	sbprs_df = pd.DataFrame(columns=['name', 'sentiment%'])
 	for product in products:
 		sentiment_df = Pre_Process(product_df[product_df.name == product]['reviews_text'])
-		sentiment_df['reviews_text'] = sentiment_df['reviews_text'].apply(lambda text: lemmatize_sentence(text))
-		#X_train_transformed = tf_idf_model.transform(product_df[product_df.name == product]['review_text'])
+		#sentiment_df['reviews_text'] = sentiment_df['reviews_text'].apply(lambda text: lemmatize_sentence(text))
 		X_train_transformed = tf_idf_model.transform(sentiment_df['reviews_text'])
 		
 		y_pred = logit_model.predict(X_train_transformed)
