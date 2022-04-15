@@ -13,15 +13,12 @@ import warnings
 warnings.filterwarnings("ignore")
 # import xgboost
 
-
-app = Flask(__name__)
-
 #Loading user-user based tf-idf model
-with open('Model/tf-idf-userbased','rb') as fp:
+with open('model/tf-idf-userbased','rb') as fp:
 	user_model = pickle.load(fp)
 
 #Loading Logistic -regression model
-with open('Model/logit','rb') as fp:
+with open('model/logit','rb') as fp:
 	logit_model = pickle.load(fp)
 
 #Loading data set
@@ -29,7 +26,7 @@ with open('data/review_data', 'rb') as fp:
 	product_df = pickle.load(fp)
 
 #Loading TF-IDF vectorizer for data transformation
-with open('Model/tf-idf-vectorizer', 'rb') as fp:
+with open('model/tf-idf-vectorizer', 'rb') as fp:
 	tf_idf_model = pickle.load(fp)
 
 @app.route('/')
@@ -119,5 +116,6 @@ def predict():
 	top5 = sbprs.sort_values('sentiment%', ascending=False).name[:5]
 	return render_template('product.html',username=str(uid), products=list(top5))
 
+app = Flask(__name__)
 if __name__ == "__main__":
     app.run()
