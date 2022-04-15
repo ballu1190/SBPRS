@@ -3,7 +3,7 @@ numpy==1.18.5
 gunicorn==20.1.0
 Flask==1.1.2
 scikit-learn==1.0.2
-scipy==1.5.2
+scipy==1.8.0
 pandas>=0.19
 # textblob==0.15.3
 nltk>=3.4.5
