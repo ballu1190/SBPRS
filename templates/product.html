@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block container %}
+  <div class="top-prod">
+    <h1>Username: {{ username}}</h1>
+    <h2>Top 5 Recommended Products: </h2>
+    {% for product in products %}
+      <div class="well">
+        <li>
+        <h2>
+          <small>{{ product}}</small>
+        </h2>
+        </li>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
