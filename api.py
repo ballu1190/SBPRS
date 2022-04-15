@@ -116,6 +116,5 @@ def predict():
 	top5 = sbprs.sort_values('sentiment%', ascending=False).name[:5]
 	return render_template('product.html',username=str(uid), products=list(top5))
 
-app = Flask(__name__)
 if __name__ == "__main__":
     app.run()
