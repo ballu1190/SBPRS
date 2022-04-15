@@ -1,1 +1,1 @@
-web: gunicorn sbprs-balwant:app
+web: gunicorn app.py
