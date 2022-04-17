@@ -11,7 +11,9 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 	#loading home page
-	return render_template('index.html')
+	names = model.product_df.reviews_username[:50]
+	unames = ' ,  '.join([str(elem) for elem in names])
+	return render_template('index.html', users= unames)
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -25,8 +27,10 @@ def predict():
 	#sentiment analysis of the product.
 	top5 = model.sentiment_analysis(prediction)
 
+	names = model.product_df.reviews_username[:50]
+	unames = ' ,  '.join([str(elem) for elem in names])
 	#rendering output
-	return render_template('product.html',username=str(uid), products=list(top5))
+	return render_template('product.html',users = unames,username=str(uid), products=list(top5))
 
 if __name__ == "__main__":
     app.run()
