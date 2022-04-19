@@ -5,6 +5,7 @@ I have built application using Flask and deployed it using Heroku on web.
 Required files/Folder:
 
 templates: index.html, product.html
+
 model: logit, tf-idf-vectorizer, user-user-corr
 data: review_data
 api.py : Flask code to coonect frontend with backend model
